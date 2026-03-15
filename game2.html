@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>測試頁面 - 輪播展示</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <style>
+      /* 讓所有滑塊內的圖片自動適應容器大小 */
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 圖片會填滿容器並保持比例，超出部分會裁切 */
+        /* 或者使用 object-fit: contain; 如果你希望看到完整圖片不被裁切 */
+      }
+
+      /* 【關鍵 2】必須設定容器寬高，否則內容會消失或縮在一起 */
+      .swiper {
+        width: 100%;
+        height: 600px;
+        margin: 50px auto;
+        border: 2px solid #ccc;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        background: #fff;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide-1">
+          <img class="game2-1" src="game2-1.jfif" alt="" />
+        </div>
+        <div class="swiper-slide slide-2">
+          <img class="game2-2" src="game2-2.jfif" alt="" />
+        </div>
+        <div class="swiper-slide slide-3">
+          <img class="game2-3" src="game2-3.jfif" alt="" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+<h1>隻狼 遊戲介紹:</h1>
+<p>
+  《隻狼：暗影雙死》（Sekiro: Shadows Die Twice）是一款由 FromSoftware
+  開發的硬派動作冒險遊戲。這款遊戲以其極高的難度、精準的「彈刀」拼招系統以及深厚的日本戰國背景而聞名。
+</p>
+<h1>優點</h1>
+<ul>
+  <li>
+    精準的「彈刀」拼招系統靠格擋與拼刀破壞敵方體幹（Posture）來取勝，動作反饋極佳。 </li>
+  <li>豐富的技能樹與「忍義手」系統，流派多樣玩不膩。</li>
+  <li>畫面精美，日系和式風格與配樂完美融合，沉浸感十足。</li>
+</ul>
+<h1>缺點</h1>
+<ul>
+  <li>線性地圖設計，卡關時無法通過其他手段先變強再回來。</li>
+  <li>武器系統單一，砍序章小兵和最終boss用的是同一把刀</li>
+  <li>難度頗高，容錯極低，通常被boss打兩下就死</li>
+</ul>
+<h1>總結</h1>
+<p>
+  這是我在購買ps5後的第一款遊戲，也是我在遊玩魂系遊戲的啟蒙之作，這款作品的風格、美術、配樂都非常吸引我，每次打boss都像在看一場電影，話雖如此，我不建議大家像我一樣第一款遊戲就選擇它，很有可能勸退對動作遊戲的熱情，但這款遊戲依舊是我最喜歡的遊戲，非常推薦給擅長動作遊戲的玩家遊玩。
+</p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // 1. 初始化 Swiper
+      const swiper = new Swiper(".mySwiper", {
+        loop: false,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // 2. 處理跨頁跳轉
+      window.addEventListener("load", () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const slideIndex = parseInt(hash.replace("#", ""));
+          if (!isNaN(slideIndex)) {
+            // 使用 slideTo 瞬間切換到該索引
+            swiper.slideTo(slideIndex, 0);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

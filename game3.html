@@ -1,0 +1,111 @@
+
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>測試頁面 - 輪播展示</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <style>
+      /* 讓所有滑塊內的圖片自動適應容器大小 */
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 圖片會填滿容器並保持比例，超出部分會裁切 */
+        /* 或者使用 object-fit: contain; 如果你希望看到完整圖片不被裁切 */
+      }
+
+      /* 【關鍵 2】必須設定容器寬高，否則內容會消失或縮在一起 */
+      .swiper {
+        width: 100%;
+        height: 600px;
+        margin: 50px auto;
+        border: 2px solid #ccc;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        background: #fff;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide-1">
+          <img class="game3-1" src="game3-1.jfif" alt="" />
+        </div>
+        <div class="swiper-slide slide-2">
+          <img class="game3-2" src="game3-2.jpg" alt="" />
+        </div>
+        <div class="swiper-slide slide-3">
+          <img class="game3-3" src="game3-3.jpg" alt="" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+<h1>最後生還者 遊戲介紹:</h1>
+<p>
+  《最後生還者》是由 Naughty Dog 開發的動作冒險遊戲。故事背景設定在現代文明崩潰後的美國，玩家將扮演喬爾，
+  帶著名叫艾莉的少女橫跨受真菌感染威脅的國度。這款遊戲以其極具深度的情感敘事、細膩的角色刻畫以及緊張的生存戰鬥而聞名，
+  被譽為遊戲史上的敘事傑作。
+</p>
+<h1>優點</h1>
+<ul>
+  <li>影視等級的劇情與情感張力，深刻探討人性與羈絆。</li>
+  <li>精緻寫實的環境細節，無論是光影還是植被覆蓋的城市都極具沉浸感。</li>
+  <li>資源管理玩法可增加沉浸感及戰鬥緊張感。</li>
+</ul>
+<h1>缺點</h1>
+<ul>
+  <li>相比開放世界，遊戲路徑較為固定，重複遊玩時的新鮮感稍減。</li>
+  <li>為了生存需要頻繁搜索每個角落的物資，節奏有時會被打斷。</li>
+  <li>殘酷的生存戰鬥畫面可能讓部分心理承受能力較弱的玩家感到不安。</li>
+</ul>
+<h1>總結</h1>
+<p>
+  《最後生還者》是我第一款與喪屍題材掛鉤的遊戲，當年遊玩的時候真的嚇到我了，每次都要為了要節省彈藥而不得不與敵人貼身搏鬥。
+  不過遊戲的劇情真的非常精彩，讓我對這個世界觀和角色產生了深厚的感情。雖然遊戲的節奏有時會被物資搜集打斷，
+  但整體來說是一款非常值得一玩的作品，尤其是對於喜歡深度敘事和生存挑戰的玩家來說。
+</p>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // 1. 初始化 Swiper
+      const swiper = new Swiper(".mySwiper", {
+        loop: false,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // 2. 處理跨頁跳轉
+      window.addEventListener("load", () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const slideIndex = parseInt(hash.replace("#", ""));
+          if (!isNaN(slideIndex)) {
+            // 使用 slideTo 瞬間切換到該索引
+            swiper.slideTo(slideIndex, 0);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+

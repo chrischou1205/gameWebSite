@@ -1,0 +1,60 @@
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 80px;
+}
+img {
+  width: 300px;
+  height: 200px;
+}
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 60px;
+}
+
+/* .swiper {
+        width: 100%;
+
+        height: 400px;
+        margin: 50px auto;
+        border: 2px solid #ccc;
+      } */
+
+/* 滑塊內容樣式 */
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* 模擬背景圖片與顏色 */
+.slide-1 {
+  background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+}
+.slide-2 {
+  background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+.slide-3 {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.slide-content {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 客製化導航箭頭顏色 */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+}
+
+/* 客製化分頁點顏色 */
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
